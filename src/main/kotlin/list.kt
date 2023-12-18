@@ -1,32 +1,32 @@
 fun main() {
-    val numbers = mutableListOf<Int>()
+    val list1: MutableList<Int>  = mutableListOf()
+    val list2: MutableList<Int>  = mutableListOf()
+    val list3: MutableList<Int>  = mutableListOf()
+    add1(list1)
+    println(list1)
 
-    numbers.add(1)
-    numbers.addAll(listOf(2, 3))
+    add2(list2)
+    println(list2[0])
 
-    numbers.forEach {
-        println(it)
-    }
+    add3(list3)
+    println(list3)
 
-    /**var / val / list / mutableList*/
-    /**val + list*/
-    val list1: List<Int> = listOf(1, 2, 3)
-//    list1 += 4
-//    list1 = list1 + 4
-    /**val + mutableList*/
-    val list2: MutableList<Int> = mutableListOf(1, 2, 3)
-    list2 += 4
-    //컴파일러가 '+='를 .plusAssign() 호출로 변환
-    list2.plusAssign(5)
-    // val , var 상관없음 -> 재대입되는 일이 없음
 
-    /**var + list*/
-    var list3: List<Int> = listOf(1, 2, 3)
-    list3 += 4
-    //위 식은 아래 식과 같음
-    val newList3 = list3 + 4
-    list3 = newList3
-    /**var + mutableList*/
-    var list4: MutableList<Int> = mutableListOf(1,2,3)
-    //예시 1번과 같음
+}
+
+fun add1(list :MutableList<Int>) : MutableList<Int> {
+    val _list = list.toMutableList()
+    _list.add(10000)
+    return _list
+}
+
+fun add2(list :MutableList<Int>) : MutableList<Int> {
+    val _list = list
+    _list.add(10000)
+    return _list
+}
+
+fun add3(list :MutableList<Int>) : MutableList<Int> {
+    list.add(10000)
+    return list
 }
