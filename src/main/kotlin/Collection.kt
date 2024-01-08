@@ -14,6 +14,20 @@ fun main() {
 
     val mutableListNumbers = mutableListOf<Int>(100, 200)
 
+    val list1 = List(10) {it}
+    val mutableList = MutableList(5) { it + 1 }
+    val (pos, neg) = list1.partition { it > 0 }
+    println("pos : $pos")
+    println("neg : $neg")
+
+
+
+    println(list1.takeLast(3))
+    println(list1)
+    val list2 = list1.takeLastWhile { it > 5 }
+    println(list2)
+    println(list1.takeLastWhile { it > 7 })
+
     println("==================== Set ========================")
 
 
